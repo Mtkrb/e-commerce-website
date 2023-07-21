@@ -1,0 +1,71 @@
+@media (max-width: 1200px) {
+  .main .banner {
+    height: 350px;
+  }
+  .social-links {
+    text-align: center;
+  }
+  .footer__shop-name {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .footer-row {
+    padding-top: 35px;
+  }
+
+  .footer .menu {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 769px) {
+  .header .menu {
+    display: none;
+  }
+  .banner__h1 {
+    margin-bottom: 20px;
+  }
+  .banner__text {
+    margin-bottom: 20px;
+  }
+  .subscribe-form__button {
+    display: block;
+    margin: 0 auto;
+  }
+  .subscribe-form__email {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .banner__description {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .banner__text,
+  .banner__h1 {
+    display: none;
+  }
+  .header .icons {
+    display: none;
+  }
+  .header__burger-menu {
+    display: block;
+  }
+}
+
+@media (max-width: 390px) {
+  .menu__list li,
+  .icons li {
+    font-size: 11px;
+  }
+}
