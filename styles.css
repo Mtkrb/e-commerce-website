@@ -407,3 +407,14 @@ input[type="number"]::-webkit-inner-spin-button {
   width: 20px;
   height: 20px;
 }
+
+.catalog-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.monthly-offers__product-card .product__add-to-cart-button {
+  width: 100%;
+  margin-bottom: 20px;
+}
