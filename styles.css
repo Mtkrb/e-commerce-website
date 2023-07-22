@@ -86,7 +86,7 @@ ul {
   width: 100%;
   height: 510px;
   position: relative;
-  background: url(/images/banner.png.png);
+  background: url(images/banner.png.png);
   background-position: right;
   background-repeat: no-repeat;
   background-size: cover;
@@ -356,4 +356,54 @@ input[type="number"]::-webkit-inner-spin-button {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+}
+
+.mobile-nav {
+  position: fixed;
+  display: flex;
+  transform: translateX(100%);
+  transition: transform 0.5 s;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  z-index: 10;
+  border: 1px solid grey;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.mobile-nav ul {
+  padding-left: 0;
+}
+
+.mobile-nav__page-link {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.mobile-nav__page-link a {
+  color: #373232;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.header .social-links {
+  margin-top: 50px;
+}
+
+.close-icon {
+  text-align: left;
+  position: absolute;
+  left: 8px;
+  top: 8px;
+}
+
+.close-icon img {
+  width: 20px;
+  height: 20px;
 }
