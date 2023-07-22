@@ -88,3 +88,11 @@
     width: 100%;
   }
 }
+
+@media (min-width: 600px) {
+  .banner__description {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+  }
+}

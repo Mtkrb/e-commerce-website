@@ -12,6 +12,11 @@ $(document).ready(function () {
   })
 })
 
+let productQuantity = document.querySelectorAll(
+  ".product__quantity-input-picker"
+)
+console.log(productQuantity.value)
+
 /// mobile-nav-toggle
 let burgerMenu = document.querySelectorAll(".header__burger-menu")
 let mobileNav = document.querySelectorAll(".mobile-nav")
@@ -26,5 +31,13 @@ for (let i = 0; i < mobileNavCloseIcon.length; i++) {
   mobileNavCloseIcon[i].addEventListener("click", function () {
     mobileNav[0].classList.toggle("d-none")
     mobileNav[0].classList.toggle("active")
+  })
+}
+
+// add to cart
+let addToCartBtn = document.querySelectorAll(".product__add-to-cart-button")
+for (let i = 0; i < addToCartBtn.length; i++) {
+  addToCartBtn[i].addEventListener("click", function () {
+    alert("Продукт добавлен в корзину")
   })
 }

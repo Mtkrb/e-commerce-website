@@ -418,3 +418,9 @@ input[type="number"]::-webkit-inner-spin-button {
   width: 100%;
   margin-bottom: 20px;
 }
+
+.banner__catalog-link:hover,
+.catalog-link:hover {
+  color: white;
+  transform: scale(1.01);
+}
