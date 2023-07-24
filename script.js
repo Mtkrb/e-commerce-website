@@ -5,17 +5,34 @@ $(document).ready(function () {
   $(".product__quantity-input-minus").on("click", function (e) {
     let input = $(e.target).closest(".product__quantity-input").find("input")
     input[0]["stepDown"]()
+    totalPrice()
   })
   $(".product__quantity-input-plus").on("click", function (e) {
     let input = $(e.target).closest(".product__quantity-input").find("input")
     input[0]["stepUp"]()
+    totalPrice()
   })
 })
 
-let productQuantity = document.querySelectorAll(
-  ".product__quantity-input-picker"
-)
-console.log(productQuantity.value)
+let priceSumValue = document.querySelectorAll(".product__price-sum")[0]
+  .innerHTML
+// total price
+function totalPrice() {
+  let productQuantity = document.querySelectorAll(
+    ".product__quantity-input-picker"
+  )[0].value
+  let priceSum = document.querySelectorAll(".product__price-sum")
+  // console.log(productQuantity)
+  // console.log(priceSumValue)
+  let totalPrice = 0
+  for (let i = 0; i < priceSum.length; i++) {
+    totalPrice = +priceSumValue * +productQuantity
+    console.log(priceSum[i])
+  }
+  // console.log(priceSum[0].innerText)
+  // console.log(initialPrice, "ini price")
+  priceSum[0].innerText = totalPrice
+}
 
 /// mobile-nav-toggle
 let burgerMenu = document.querySelectorAll(".header__burger-menu")
