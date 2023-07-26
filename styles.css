@@ -9,6 +9,10 @@ a {
   text-decoration: none;
 }
 
+.main {
+  min-height: calc(100vh - 545px);
+}
+
 body {
   font-family: Inter;
   font-style: normal;
@@ -423,4 +427,30 @@ input[type="number"]::-webkit-inner-spin-button {
 .catalog-link:hover {
   color: white;
   transform: scale(1.01);
+}
+
+.how-to-take-care__title {
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 20px;
+}
+
+a,
+a:hover {
+  color: #000;
+}
+
+.how-to-take-care__plant-type {
+  color: #000;
+  margin-top: 12px;
+  margin-bottom: 24px;
+  font-family: Inter;
+  font-size: 24x;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.how-to-take-care__link img {
+  width: 100%;
 }
