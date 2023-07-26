@@ -479,6 +479,11 @@ a:hover {
 .main-image-and-desription img {
   width: 100%;
 }
+.tips-how-to-care {
+  padding: 25px;
+  background-color: #f3eff0;
+  border-radius: 8px;
+}
 
 .tips-images div img {
   width: 100%;
