@@ -48,6 +48,10 @@
     margin-bottom: 20px;
     justify-content: center;
   }
+
+  .tips-description {
+    font-size: 21px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -85,6 +89,9 @@
     font-size: 11px;
   }
   .product__product-image img {
+    width: 100%;
+  }
+  .tips-how-to-care img {
     width: 100%;
   }
 }

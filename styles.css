@@ -454,3 +454,33 @@ a:hover {
 .how-to-take-care__link img {
   width: 100%;
 }
+
+.tips-description {
+  color: #646161;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.tips-title {
+  margin-bottom: 20px;
+}
+
+.tips-images {
+  margin-top: 24px;
+}
+
+.tips-images div {
+  text-align: center;
+  padding: 20px;
+}
+
+.main-image-and-desription img {
+  width: 100%;
+}
+
+.tips-images div img {
+  width: 100%;
+  height: 100%;
+}
