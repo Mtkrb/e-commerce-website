@@ -14,8 +14,11 @@ $(document).ready(function () {
   })
 })
 
-let priceSumValue = document.querySelectorAll(".product__price-sum")[0]
-  .innerHTML
+if (window.location.href.indexOf("product") != -1) {
+  var priceSumValue = document.querySelectorAll(".product__price-sum")[0]
+    .innerHTML
+}
+
 // total price
 function totalPrice() {
   let productQuantity = document.querySelectorAll(
