@@ -514,7 +514,7 @@ a:hover {
 .payment-and-shipment__country-chose label {
   position: absolute;
   top: 3px;
-  left: 32px;
+  left: 20px;
 }
 
 .payment-and-shipment__name-input {
@@ -530,7 +530,9 @@ a:hover {
 }
 
 #city,
-#zip {
+#zip,
+#cvc,
+#validity {
   padding: 16px;
   border: 1px solid #1e1e1e;
   border-radius: 10px;
@@ -555,10 +557,117 @@ a:hover {
   padding-right: 0;
 }
 
-#address {
+#address,
+#card-name {
   width: 100%;
   margin-top: 20px;
   padding: 16px;
   border: 1px solid #1e1e1e;
   border-radius: 10px;
+}
+
+.payment-and-shipment__payment-type-chose {
+  justify-content: space-between;
+  align-items: center;
+  background: #f2faf1;
+  border: 1px solid #2b603f;
+  border-radius: 10px;
+}
+
+.main .payment-and-shipment * {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.main .payment-and-shipment .name-wrapper,
+.main .payment-and-shipment .city-wrapper,
+.main .payment-and-shipment .validity-wrapper {
+  padding-right: 5px;
+}
+
+.main .payment-and-shipment .surname-wrapper,
+.main .payment-and-shipment .zip-wrapper,
+.main .payment-and-shipment .cvc-wrapper {
+  padding-left: 5px;
+}
+
+.credit-card-icons-wrapper img {
+  max-width: 120px;
+  max-height: 60px;
+}
+
+.credit-card-icons-wrapper {
+  justify-content: end;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#credit-card-checkbox {
+  margin-right: 12px;
+  position: relative;
+  width: 1.3em;
+  height: 1.3em;
+  background-color: #065a0e;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+#credit-card-checkbox::after {
+  content: "";
+  display: block;
+  border-radius: 50%;
+  background: #fff;
+  width: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 5px;
+  align-self: center;
+}
+
+.payment-type-name {
+  color: #000;
+  font-family: Alegreya;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.save-data-confirm-info {
+  color: #1e1e1e;
+  margin-left: 12px;
+  font-family: Alegreya Sans;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.checkbox-save-data-wrapper {
+  margin-top: 35px;
+}
+
+.finish-form-filling {
+  margin-top: 35px;
+  height: 65px;
+  color: #fff;
+  font-family: Alegreya;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  width: 100%;
+  border-radius: 10px;
+  color: white;
+  border: 3px solid #065a0e;
+  background: #2b603f;
 }

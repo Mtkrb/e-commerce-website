@@ -21,7 +21,7 @@
           <ul class="menu__list">
             <li><a href="catalog.html">Каталог</a></li>
             <li><a href="soveti-po-uhodu.html">Советы по уходу</a></li>
-            <li><a href="/">Оплата и доставка</a></li>
+            <li><a href="pay-and-ship.html">Оплата и доставка</a></li>
             <li><a href="/">Контакты</a></li>
           </ul>
         </nav>
@@ -70,7 +70,9 @@
           <p class="mobile-nav__page-link">
             <a href="soveti-po-uhodu.html">Советы по уходу</a>
           </p>
-          <p class="mobile-nav__page-link"><a href="/">Оплата и доставка</a></p>
+          <p class="mobile-nav__page-link">
+            <a href="pay-and-ship.html">Оплата и доставка</a>
+          </p>
           <p class="mobile-nav__page-link"><a href="/">Контакты</a></p>
           <div class="social-links">
             <a class="social-link" href="/"
@@ -141,6 +143,68 @@
                 />
               </div>
             </div>
+
+            <h2 class="payment-and-shipment__title col-12">Доставка</h2>
+            <div class="payment-and-shipment__payment-type-chose col-12 row">
+              <div class="checkbox-wrapper col-sm-3">
+                <input id="credit-card-checkbox" type="checkbox" />
+                <span class="payment-type-name">Карта</span>
+              </div>
+              <div class="credit-card-icons-wrapper row col-6">
+                <img class="col-4" src="../images/visa.svg" alt="visa icon" />
+                <img
+                  class="col-4"
+                  src="../images/master-card.svg"
+                  alt="master-card icon"
+                />
+                <img
+                  class="col-4"
+                  src="../images/paypal.svg"
+                  alt="paypal icon"
+                />
+              </div>
+            </div>
+            <div class="row payment-and-shipment__name-input col-12">
+              <input
+                id="name"
+                class="col-12"
+                placeholder="Номер карты"
+                type="number"
+              />
+            </div>
+            <div class="row payment-and-shipment__city-and-zip col-12">
+              <div class="col-12 col-sm-6 validity-wrapper">
+                <input
+                  id="validity"
+                  class="col-12"
+                  placeholder="Срок действия"
+                  type="text"
+                />
+              </div>
+              <div class="col-12 col-sm-6 cvc-wrapper">
+                <input
+                  id="cvc"
+                  class="col-12"
+                  placeholder="CVC/CVV"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div class="col-12 address-wrapper">
+              <input
+                id="card-name"
+                class="col-12"
+                placeholder="Имя на карте"
+                type="address"
+              />
+            </div>
+            <div class="checkbox-save-data-wrapper">
+              <input type="checkbox" />
+              <span class="save-data-confirm-info"
+                >Безопасно сохранить эту карту для моих будущих покупок</span
+              >
+            </div>
+            <button class="finish-form-filling">Заершить офромление</button>
           </form>
           <aside class="col-12 col-sm-3"></aside>
         </section>
@@ -154,7 +218,7 @@
               <ul class="menu__list">
                 <li><a href="catalog.html">Каталог</a></li>
                 <li><a href="soveti-po-uhodu.html">Советы по уходу</a></li>
-                <li><a href="/">Оплата и доставка</a></li>
+                <li><a href="pay-and-ship.html">Оплата и доставка</a></li>
                 <li><a href="/">Контакты</a></li>
               </ul>
             </nav>
