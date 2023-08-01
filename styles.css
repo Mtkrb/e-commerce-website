@@ -517,7 +517,8 @@ a:hover {
 
 .payment-and-shipment__country-chose label {
   position: absolute;
-  top: 3px;
+  font-size: 13px;
+  top: 8px;
   left: 20px;
 }
 
