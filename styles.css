@@ -490,6 +490,10 @@ a:hover {
   height: 100%;
 }
 
+.payment-and-shipment {
+  margin: 0 auto;
+}
+
 .payment-and-shipment__title {
   margin-top: 20px;
   margin-bottom: 40px;
@@ -545,16 +549,6 @@ a:hover {
 
 .payment-and-shipment__city-and-zip {
   margin-top: 20px;
-}
-
-.name-wrapper,
-.city-wrapper {
-  padding-left: 0;
-}
-
-.surname-wrapper,
-.zip-wrapper {
-  padding-right: 0;
 }
 
 #address,

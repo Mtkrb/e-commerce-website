@@ -83,7 +83,17 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575.5px) {
+  .main .payment-and-shipment .surname-wrapper,
+  .main .payment-and-shipment .zip-wrapper,
+  .main .payment-and-shipment .cvc-wrapper {
+    padding-left: 0;
+  }
+  .main .payment-and-shipment .name-wrapper,
+  .main .payment-and-shipment .city-wrapper,
+  .main .payment-and-shipment .validity-wrapper {
+    padding-right: 0;
+  }
   .payment-and-shipment {
     justify-content: center;
   }
@@ -94,7 +104,8 @@
   }
 
   .surname-wrapper,
-  .zip-wrapper {
+  .zip-wrapper,
+  .cvc-wrapper {
     margin-top: 20px;
     padding-left: 0;
   }
