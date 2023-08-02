@@ -1,4 +1,8 @@
 @media (max-width: 1200px) {
+  #contact-us {
+    margin-top: 20px;
+  }
+
   .main .banner {
     height: 350px;
   }
@@ -22,6 +26,10 @@
 }
 
 @media (max-width: 769px) {
+  .contact-us__surname,
+  .contact-phone-number {
+    margin-top: 20px;
+  }
   .header .menu {
     display: none;
   }

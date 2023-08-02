@@ -545,6 +545,7 @@ a:hover {
 
 #payment-form {
   justify-content: center;
+  margin: 0 auto;
   align-items: center;
 }
 
@@ -665,4 +666,93 @@ a:hover {
   color: white;
   border: 3px solid #065a0e;
   background: #2b603f;
+}
+
+.main .payment-and-shipment-aside {
+  border-radius: 20px;
+  background: #f3eff0;
+  padding: 20px;
+}
+
+.main .payment-and-shipment-aside-empty {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+#payment-form {
+  padding-right: 20px;
+}
+
+.contacts__title {
+  text-align: center;
+  margin: 20px;
+}
+
+.contacts_secondary-title {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#contact-us input {
+  width: 100%;
+  background-color: #f3eff0;
+  padding: 12px;
+  border-bottom: 1px solid #8d8d8d;
+}
+
+.contacts__main-info {
+  margin-top: 35px;
+  border-radius: 30px;
+  background: #f3eff0;
+  padding: 20px;
+}
+
+.contacts__info__description {
+  margin-left: 12px;
+}
+
+.contacts__info {
+  padding: 30px;
+  color: white;
+  border-radius: 30px;
+  background: #646161;
+}
+
+#contact-us .contact-us__form-col {
+  padding: 12px;
+}
+
+.contacts__info__title {
+  margin-top: 20px;
+  margin-bottom: 35px;
+}
+
+.contacts__info__contacts {
+  margin-top: 60px;
+}
+
+#contact-us textarea {
+  background-color: #f3eff0;
+  width: 100%;
+  margin-top: 25px;
+  padding: 12px;
+  border-bottom: 1px solid #8d8d8d;
+}
+
+.button-col {
+  text-align: end;
+}
+
+.contact-us-button {
+  margin-top: 20px;
+  padding: 12px;
+  color: white;
+  font-size: 20px;
+  border-radius: 20px;
+  background: #646161;
+}
+
+#contacts .phone-icon {
+  padding: 5px;
 }
