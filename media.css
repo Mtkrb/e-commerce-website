@@ -124,6 +124,11 @@
   .icons li {
     font-size: 11px;
   }
+
+  .menu__list li {
+    padding-right: 8px;
+  }
+
   .product__product-image img {
     width: 100%;
   }
