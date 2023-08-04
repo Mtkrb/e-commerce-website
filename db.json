@@ -1,0 +1,37 @@
+{
+  "products": [
+    {
+      "img": "images/offers-image-1.png",
+      "altimg": "Product image",
+      "title": "Стерлиция Николая",
+      "origin_price": 560
+    },
+    {
+      "img": "images/offers-image-2.png",
+      "altimg": "Product image",
+      "title": "Фикус Эластика",
+      "origin_price": 900
+    },
+    {
+      "img": "images/offers-image-3.png",
+      "altimg": "Product image",
+      "title": "Фикус лироаидный",
+      "origin_price": 900
+    },
+    {
+      "img": "images/offers-image-4.png",
+      "altimg": "Product image",
+      "title": "Алоэ вера",
+      "origin_price": 560
+    }
+  ],
+  "requests": [
+    {
+      "prodName": "Фикус Эластика",
+      "prodImage": "http://127.0.0.1:5500/images/offers-image-2.png",
+      "prodPrice": "900",
+      "prodQuantity": "1",
+      "id": 1
+    }
+  ]
+}

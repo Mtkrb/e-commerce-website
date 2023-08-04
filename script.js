@@ -12,6 +12,19 @@ $(document).ready(function () {
     input[0]["stepUp"]()
     totalPrice()
   })
+  // smooth transition
+  var speed = "slow"
+
+  $("html, body").fadeIn(speed, function () {
+    $("a[href], button[href]").click(function (event) {
+      var url = $(this).attr("href")
+      if (url.indexOf("#") == 0 || url.indexOf("javascript:") == 0) return
+      event.preventDefault()
+      $("html, body").fadeOut(speed, function () {
+        window.location = url
+      })
+    })
+  })
 })
 
 if (window.location.href.indexOf("product") != -1) {
@@ -30,7 +43,7 @@ function totalPrice() {
   let totalPrice = 0
   for (let i = 0; i < priceSum.length; i++) {
     totalPrice = +priceSumValue * +productQuantity
-    console.log(priceSum[i])
+    // console.log(priceSum[i])
   }
   // console.log(priceSum[0].innerText)
   // console.log(initialPrice, "ini price")
@@ -57,7 +70,55 @@ for (let i = 0; i < mobileNavCloseIcon.length; i++) {
 // add to cart
 let addToCartBtn = document.querySelectorAll(".product__add-to-cart-button")
 for (let i = 0; i < addToCartBtn.length; i++) {
-  addToCartBtn[i].addEventListener("click", function () {
-    alert("Продукт добавлен в корзину")
+  addToCartBtn[i].addEventListener("click", function (e) {
+    if (e.target.closest("div").querySelector(".product-image")) {
+      var productName = e.target
+        .closest("div")
+        .querySelector(".product-name").innerHTML
+      var productImage = e.target
+        .closest("div")
+        .querySelector(".product-image").src
+      var productPrice = e.target
+        .closest("div")
+        .querySelector(".product-price").innerHTML
+      var productQuantity = "1"
+    } else {
+      var productImage = e.target
+        .closest("#product")
+        .querySelector(".product-image").src
+      var productName = e.target
+        .closest("#product")
+        .querySelector(".product__product-name").innerHTML
+      var productPrice = e.target
+        .closest("#product")
+        .querySelector(".product__price-sum").innerHTML
+      var productQuantity = e.target
+        .closest("#product")
+        .querySelector(".product__quantity-input-picker").value
+    }
+    console.log(productName)
+    console.log(productImage)
+    console.log(productPrice)
+    console.log(productQuantity)
+    fetch("http://localhost:3000/requests", {
+      method: "POST",
+      headers: {
+        "Content-type": "Application/json",
+      },
+      body: JSON.stringify({
+        prodName: productName,
+        prodImage: productImage,
+        prodPrice: productPrice,
+        prodQuantity: productQuantity,
+      }),
+    })
   })
 }
+
+// document.querySelector(".main").addEventListener("click", (e) => {
+//   console.log("haa")
+//   if (e.target.classList.contains("product__add-to-cart-button")) {
+//     // myFunc(title, price, image)
+//     console.log("ha")
+//   }
+// })
