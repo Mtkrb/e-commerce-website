@@ -122,3 +122,26 @@ for (let i = 0; i < addToCartBtn.length; i++) {
 //     console.log("ha")
 //   }
 // })
+
+// get products
+const getProduct = async function (url) {
+  const result = await fetch(url)
+  if (!result.ok) {
+    throw new Error(`Ошибка фетч ${url} статус: ${result.status}`)
+  }
+  return await result.json()
+}
+
+getProduct(`http://localhost:3000/requests`).then((data) => {
+  console.log(data)
+  // data.forEach((element) => {
+  //   new productCard(
+  //     element.img,
+  //     element.classColor,
+  //     element.top_ttl,
+  //     element.title,
+  //     element.new_price,
+  //     element.origin_price
+  //   ).render()
+  // })
+})

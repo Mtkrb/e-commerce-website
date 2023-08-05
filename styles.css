@@ -5,6 +5,21 @@
   border: 0 solid transparent;
 }
 
+@font-face {
+  font-family: Inter;
+  src: url(fonts/Inter/Inter-VariableFont_slnt\wght.ttf);
+}
+
+@font-face {
+  font-family: Alegreya;
+  src: url(fonts/Alegreya/Alegreya-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: Alegreya Sans;
+  src: url(fonts/Alegreya_Sans/AlegreyaSans-Medium.ttf);
+}
+
 a {
   text-decoration: none;
 }
@@ -70,7 +85,7 @@ ul {
   float: left;
   padding-right: 20px;
   color: #373232;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 400;
 }
 
@@ -492,6 +507,7 @@ a:hover {
 
 .payment-and-shipment {
   margin: 0 auto;
+  font-size: 21px;
 }
 
 .payment-and-shipment__title {
@@ -506,6 +522,7 @@ a:hover {
 .payment-and-shipment__country-chose #country {
   width: 100%;
   padding: 16px;
+  font-size: 24px;
   border: 1px solid #1e1e1e;
   border-radius: 10px;
   padding-top: 25px;
@@ -669,6 +686,10 @@ a:hover {
 }
 
 .main .payment-and-shipment-aside {
+  /* overflow: hidden;
+  overflow-y: scroll;
+  height: 850px; */
+  flex-direction: column;
   border-radius: 20px;
   background: #f3eff0;
   padding: 20px;
@@ -760,4 +781,81 @@ a:hover {
 .icons .icons__list li {
   padding-right: 18px;
   padding-left: 18px;
+}
+
+.cart-items img {
+  height: 150px;
+  width: 100px;
+  border-radius: 10px;
+}
+
+.cart-items {
+  height: 150px;
+  width: 100%;
+  margin-top: 12px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-items .product-name {
+  text-align: center;
+  margin-bottom: 0;
+  color: #1e1e1e;
+  font-family: Alegreya Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.cart-items .price {
+  color: #000;
+  font-family: Alegreya Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: end;
+}
+
+.payment-and-shipment-aside .cart-summary {
+  margin-top: 50px;
+}
+
+.total-products-price {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-image-wrapper {
+  position: relative;
+}
+
+.cart-image-wrapper img {
+  width: 100%;
+}
+
+.cart-product-quantity {
+  position: absolute;
+  text-align: center;
+  width: 27px;
+  height: 27px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+}
+
+.cart-items-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.cart-items-wrapper {
+  max-height: 850px;
+  overflow-y: scroll;
 }
