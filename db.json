@@ -29,65 +29,30 @@
     {
       "prodName": "Фикус Эластика",
       "prodImage": "http://127.0.0.1:5500/images/offers-image-2.png",
-      "prodPrice": "900",
-      "prodQuantity": "1",
+      "prodPrice": "9900",
+      "prodQuantity": "11",
       "id": 1
-    },
-    {
-      "prodName": "\n              Фикус Эластика\n            ",
-      "prodImage": "http://127.0.0.1:5500/images/offers-image-2.png",
-      "prodPrice": "900 р",
-      "prodQuantity": "1",
-      "id": 2
-    },
-    {
-      "prodName": "Алоэ вера",
-      "prodImage": "http://127.0.0.1:5500/images/offers-image-4.png",
-      "prodPrice": "560 р",
-      "prodQuantity": "1",
-      "id": 3
-    },
-    {
-      "prodName": "\n              Фикус Эластика\n            ",
-      "prodImage": "http://127.0.0.1:5500/images/offers-image-2.png",
-      "prodPrice": "900 р",
-      "prodQuantity": "1",
-      "id": 4
-    },
-    {
-      "prodName": "Алоэ вера",
-      "prodImage": "http://127.0.0.1:5500/images/offers-image-4.png",
-      "prodPrice": "560 р",
-      "prodQuantity": "1",
-      "id": 5
     },
     {
       "prodName": "\n              Стерлиция Николая\n            ",
       "prodImage": "http://127.0.0.1:5500/images/offers-image-1.png",
-      "prodPrice": "560 р",
-      "prodQuantity": "1",
-      "id": 6
+      "prodPrice": "3920",
+      "prodQuantity": "7",
+      "id": 2
     },
     {
-      "prodName": "Фикус лироаидный",
+      "prodName": "\n              Фикус лироаидный\n            ",
       "prodImage": "http://127.0.0.1:5500/images/offers-image-3.png",
-      "prodPrice": "900",
-      "prodQuantity": "1",
-      "id": 7
+      "prodPrice": "2700",
+      "prodQuantity": "3",
+      "id": 3
     },
     {
-      "prodName": "Фикус Эластика",
-      "prodImage": "http://127.0.0.1:5500/images/offers-image-2.png",
-      "prodPrice": "900",
-      "prodQuantity": "1",
-      "id": 8
-    },
-    {
-      "prodName": "Фикус Эластика",
-      "prodImage": "http://127.0.0.1:5500/images/offers-image-2.png",
-      "prodPrice": "3600",
+      "prodName": "Алоэ вера",
+      "prodImage": "http://127.0.0.1:5500/images/offers-image-4.png",
+      "prodPrice": "2240",
       "prodQuantity": "4",
-      "id": 9
+      "id": 4
     }
   ]
 }
