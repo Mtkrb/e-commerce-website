@@ -249,6 +249,9 @@ function totalProducts() {
     // console.log(totalPrice)
   }
   quantityCountPlacement.innerHTML = totalPrice
+  if (totalPrice !== 0) {
+    document.querySelector(".payment-and-shipment-aside-empty").remove()
+  }
   // console.log(priceCount[0].innerHTML)
   // console.log(priceCount)
 }
