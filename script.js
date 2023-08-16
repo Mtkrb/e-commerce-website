@@ -1,6 +1,9 @@
 "use strict"
 
 let requestsUrl = `http://localhost:3000/requests/`
+// fetch(`${requestsUrl}1`, {
+//   method: "DELETE",
+// })
 
 // get products
 const getProduct = async function (url) {
@@ -15,40 +18,13 @@ getProduct(`http://localhost:3000/requests`).then((data) => {
   console.log(data)
 })
 
-//prod page product quantity picker
-$(document).ready(function () {
-  $(".product__quantity-input-minus").on("click", function (e) {
-    let input = $(e.target).closest(".product__quantity-input").find("input")
-    input[0]["stepDown"]()
-    totalPrice()
-  })
-  $(".product__quantity-input-plus").on("click", function (e) {
-    let input = $(e.target).closest(".product__quantity-input").find("input")
-    input[0]["stepUp"]()
-    totalPrice()
-  })
-  // smooth transition
-  var speed = "slow"
-
-  $("html, body").fadeIn(speed, function () {
-    $("a[href], button[href]").click(function (event) {
-      var url = $(this).attr("href")
-      if (url.indexOf("#") == 0 || url.indexOf("javascript:") == 0) return
-      event.preventDefault()
-      $("html, body").fadeOut(speed, function () {
-        window.location = url
-      })
-    })
-  })
-})
-
 if (window.location.href.indexOf("product") != -1) {
   var priceSumValue = document.querySelectorAll(".product__price-sum")[0]
     .innerHTML
 }
 
 // total price
-function totalPrice() {
+function totalPriceProdPage() {
   let productQuantity = document.querySelectorAll(
     ".product__quantity-input-picker"
   )[0].value
@@ -170,11 +146,12 @@ for (let i = 0; i < addToCartBtn.length; i++) {
       .catch((error) => {
         console.error("Произошла ошибка:", error)
       })
+    alert("Продукт добавлен")
   })
 }
 // product render payment page
 class cartProducts {
-  constructor(img, name, price, quantity, insertTo) {
+  constructor(img, name, price, quantity, insertTo, insertToCart) {
     this.img = img
     this.quantity = quantity
     this.name = name
@@ -182,6 +159,7 @@ class cartProducts {
     this.insertTo = document.querySelector(
       ".payment-and-shipment-aside .cart-items-wrapper"
     )
+    this.insertToCart = document.querySelector(".cart .cart-list-container")
   }
 
   renderPaymentPage() {
@@ -202,25 +180,247 @@ class cartProducts {
         <span class="product-price">${this.price}</span>
         <span>p</span>
       </div>
-    `
 
+    `
     this.insertTo.append(cartProducts)
+  }
+
+  renderCartPage() {
+    const cartPageProducts = document.createElement("div")
+    cartPageProducts.classList.add("col-12", "cart-item", "row")
+    cartPageProducts.innerHTML = `
+      <div class="cart-item__prod-image col-12 col-md-3">
+      <img
+        class="product-image"
+        src="${this.img}"
+        alt=""
+      />
+    </div>
+    <div class="cart-item__prod-name col-12 col-md-4">
+    ${this.name}
+    </div>
+    <div class="cart-item__prod-quantity col-12 col-md-3">
+      <div class="product__quantity-input">
+        <button class="product__quantity-input-plus">+</button>
+        <input
+          class="product__quantity-input-picker"
+          id="quantity"
+          type="number"
+          min="1"
+          value="${this.quantity}"
+          max="99"
+          readonly
+        />
+        <button class="product__quantity-input-minus">-</button>
+      </div>
+    </div>
+    <div class="cart-item__prod-price col-12 col-md-2">
+      <span class="product-price">${this.price}</span>
+      <span class="product-currency">p</span>
+    </div>
+    <div class="cart-item__icons">
+    <img
+      class="cart-trash-icon"
+      src="../images/trash.svg"
+      alt="trash icon"
+    />
+  </div>
+    `
+    this.insertToCart.append(cartPageProducts)
   }
 }
 
-getProduct(requestsUrl).then((data) => {
-  // console.log(data)
-  data.forEach((element) => {
-    new cartProducts(
-      element.prodImage,
-      element.prodName,
-      element.prodPrice,
-      element.prodQuantity
-    ).renderPaymentPage()
+if (window.location.href.indexOf("pay-and-ship") != -1) {
+  getProduct(requestsUrl).then((data) => {
+    // console.log(data)
+    data.forEach((element) => {
+      new cartProducts(
+        element.prodImage,
+        element.prodName,
+        element.prodPrice,
+        element.prodQuantity
+      ).renderPaymentPage()
+    })
+    totalPrice()
+    totalProducts()
   })
-  totalPrice()
-  totalProducts()
-})
+}
+
+if (window.location.href.indexOf("cart") != -1) {
+  let cartListContainer = document.querySelector(".cart-list-container")
+  cartListContainer.addEventListener("click", function (e) {
+    if (e.target.classList.contains("product__quantity-input-plus")) {
+      var productNameCart = e.target
+        .closest(".cart-item")
+        .querySelector(".cart-item__prod-name").innerHTML
+      var productImageCart = e.target
+        .closest(".cart-item")
+        .querySelector(".product-image").src
+      var productPriceCart = e.target
+        .closest(".cart-item")
+        .querySelector(".product-price").innerHTML
+      var productQuantityCart = e.target
+        .closest(".cart-item")
+        .querySelector(".product__quantity-input-picker").value
+
+      fetch(requestsUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          const existingProductIndex = data.findIndex(
+            (request) => request.prodName.trim() === productNameCart.trim()
+          )
+
+          if (existingProductIndex !== -1) {
+            // Продукт уже существует, складываем значения
+            const existingProduct = data[existingProductIndex]
+            existingProduct.prodPrice = (
+              parseFloat(existingProduct.prodPrice) +
+              parseFloat(existingProduct.prodPrice) /
+                parseInt(existingProduct.prodQuantity)
+            ).toString()
+            existingProduct.prodQuantity = (
+              parseInt(existingProduct.prodQuantity) + 1
+            ).toString()
+
+            // Отправляем PUT запрос для обновления данных продукта
+            fetch(`${requestsUrl}/${existingProduct.id}`, {
+              method: "PUT",
+              headers: {
+                "Content-type": "Application/json",
+              },
+              body: JSON.stringify(existingProduct),
+            })
+              .then((response) => response.json())
+              .then((updatedProduct) => {
+                console.log("Обновленные данные продукта:", updatedProduct)
+              })
+              .catch((error) => {
+                console.error("Произошла ошибка:", error)
+              })
+          } else {
+            console.error("somethin wnt wrong")
+          }
+        })
+        .catch((error) => {
+          console.error("Произошла ошибка:", error)
+        })
+    }
+    if (e.target.classList.contains("product__quantity-input-minus")) {
+      var productNameCart = e.target
+        .closest(".cart-item")
+        .querySelector(".cart-item__prod-name").innerHTML
+      var productImageCart = e.target
+        .closest(".cart-item")
+        .querySelector(".product-image").src
+      var productPriceCart = e.target
+        .closest(".cart-item")
+        .querySelector(".product-price").innerHTML
+      var productQuantityCart = e.target
+        .closest(".cart-item")
+        .querySelector(".product__quantity-input-picker").value
+
+      if (+productQuantityCart === 1) {
+        return
+      }
+
+      productQuantityCart
+
+      fetch(requestsUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          const existingProductIndex = data.findIndex(
+            (request) => request.prodName.trim() === productNameCart.trim()
+          )
+
+          if (existingProductIndex !== -1) {
+            const existingProduct = data[existingProductIndex]
+
+            existingProduct.prodPrice = (
+              parseFloat(existingProduct.prodPrice) -
+              parseFloat(existingProduct.prodPrice) /
+                parseInt(existingProduct.prodQuantity)
+            ).toString()
+            existingProduct.prodQuantity = (
+              parseInt(existingProduct.prodQuantity) - 1
+            ).toString()
+
+            // Отправляем PUT запрос для обновления данных продукта
+            fetch(`${requestsUrl}/${existingProduct.id}`, {
+              method: "PUT",
+              headers: {
+                "Content-type": "Application/json",
+              },
+              body: JSON.stringify(existingProduct),
+            })
+              .then((response) => response.json())
+              .then((updatedProduct) => {
+                console.log("Обновленные данные продукта:", updatedProduct)
+              })
+              .catch((error) => {
+                console.error("Произошла ошибка:", error)
+              })
+          } else {
+            console.error("somethin wnt wrong")
+          }
+        })
+        .catch((error) => {
+          console.error("Произошла ошибка:", error)
+        })
+    }
+  })
+
+  cartListContainer.addEventListener("click", function (e) {
+    if (e.target.classList.contains("cart-trash-icon")) {
+      let productName = e.target
+        .closest(".cart-item")
+        .querySelector(".cart-item__prod-name")
+        .innerText.trim()
+
+      fetch(requestsUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          const productIndex = data.findIndex(
+            (product) => product.prodName.trim() === productName
+          )
+
+          if (productIndex !== -1) {
+            const productId = data[productIndex].id
+
+            // Sending DELETE request to remove the product
+            fetch(`${requestsUrl}${productId}`, {
+              method: "DELETE",
+            })
+              .then((response) => response.json())
+              .then(() => {
+                console.log("Product deleted successfully!")
+                // You may want to reload the page or update the UI after successful deletion
+              })
+              .catch((error) => {
+                console.error("Error deleting product:", error)
+              })
+          } else {
+            console.error("Product not found in the database.")
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error)
+        })
+    }
+  })
+  getProduct(requestsUrl).then((data) => {
+    // console.log(data)
+    data.forEach((element) => {
+      new cartProducts(
+        element.prodImage,
+        element.prodName,
+        element.prodPrice,
+        element.prodQuantity
+      ).renderCartPage()
+    })
+    totalPrice()
+    totalProducts()
+  })
+}
 
 function totalPrice() {
   /// Summary price
@@ -252,10 +452,52 @@ function totalProducts() {
   if (totalPrice !== 0) {
     document.querySelector(".payment-and-shipment-aside-empty").remove()
   }
-  // console.log(priceCount[0].innerHTML)
-  // console.log(priceCount)
+  if (window.location.href.indexOf("cart") != -1) {
+    let prodQuantity = document.querySelectorAll(
+      ".cart .product__quantity-input-picker"
+    )
+    for (let i = 0; i < prodQuantity.length; i++) {
+      totalPrice = totalPrice + +prodQuantity[i].value
+    }
+    quantityCountPlacement.innerHTML = totalPrice
+    if (totalPrice !== 0) {
+      document.querySelector(".payment-and-shipment-aside-empty").remove()
+    }
+  }
 }
 
-// fetch(requestsUrl + "5", {
+// fetch(requestsUrl + "1", {
 //   method: "DELETE",
 // })
+//prod page product quantity picker
+$(document).ready(function () {
+  $(".product__quantity-input-minus").on("click", function (e) {
+    let input = $(e.target).closest(".product__quantity-input").find("input")
+    input[0]["stepDown"]()
+    totalPriceProdPage()
+  })
+  $(".product__quantity-input-plus").on("click", function (e) {
+    let input = $(e.target).closest(".product__quantity-input").find("input")
+    input[0]["stepUp"]()
+    totalPriceProdPage()
+  })
+  // cart page picker
+  if (window.location.href.indexOf("cart") != -1) {
+    console.log("yeaaha")
+  }
+  // smooth transition
+  var speed = "slow"
+
+  $("html, body").fadeIn(speed, function () {
+    $("a[href], button[href]").click(function (event) {
+      var url = $(this).attr("href")
+      if (url.indexOf("#") == 0 || url.indexOf("javascript:") == 0) return
+      event.preventDefault()
+      $("html, body").fadeOut(speed, function () {
+        window.location = url
+      })
+    })
+  })
+})
+
+// Код для изменения количества продукта в корзине

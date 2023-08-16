@@ -98,8 +98,29 @@
     </header>
     <main class="main">
       <div class="container">
-        <section id="cart">
-          <h2 class="cart__title">Корзина Пуста</h2>
+        <section class="cart row">
+          <h1 class="cart__title col-12">Корзина</h1>
+          <div class="col-12 col-xl-8 row cart-list-container">
+            <div class="cart-item col-12 row">
+              <p class="payment-and-shipment-aside-empty">Корзина пуста</p>
+            </div>
+          </div>
+          <aside class="cart-aside col-12 col-xl-4">
+            <div class="cart">
+              <div class="cart-items-wrapper"></div>
+              <div class="col-12 cart-summary">
+                <p class="total-products">
+                  Товары, <span class="products-sum"> 0 </span>Шт
+                </p>
+                <p class="total-products-price">
+                  Итого:
+                  <span class="price-sum"
+                    >0 <span class="price-currency">p</span></span
+                  >
+                </p>
+              </div>
+            </div>
+          </aside>
         </section>
       </div>
     </main>
