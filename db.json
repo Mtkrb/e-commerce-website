@@ -27,11 +27,32 @@
   ],
   "requests": [
     {
-      "prodName": "Фикус лироаидный",
-      "prodImage": "http://127.0.0.1:5500/images/offers-image-3.png",
-      "prodPrice": "900",
-      "prodQuantity": "1",
+      "prodName": "\n              Фикус Эластика\n            ",
+      "prodImage": "http://127.0.0.1:5500/images/offers-image-2.png",
+      "prodPrice": "4500",
+      "prodQuantity": "5",
       "id": 1
+    },
+    {
+      "prodName": "\n              Фикус лироаидный\n            ",
+      "prodImage": "http://127.0.0.1:5500/images/offers-image-3.png",
+      "prodPrice": " 900 ",
+      "prodQuantity": "1",
+      "id": 2
+    },
+    {
+      "prodName": "Алоэ вера",
+      "prodImage": "http://127.0.0.1:5500/images/offers-image-4.png",
+      "prodPrice": " 560 ",
+      "prodQuantity": "1",
+      "id": 3
+    },
+    {
+      "prodName": "\n              Стерлиция Николая\n            ",
+      "prodImage": "http://127.0.0.1:5500/images/offers-image-1.png",
+      "prodPrice": " 560 ",
+      "prodQuantity": "1",
+      "id": 4
     }
   ]
 }
