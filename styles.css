@@ -228,6 +228,7 @@ ul {
 
 .subscribe-form__email {
   max-height: 65px;
+  width: 100%;
   max-width: 300px;
   color: #fff;
   border: 5px solid #949090;
